@@ -1,0 +1,8 @@
+
+---
+# tasks file for verification
+
+- hosts: all 
+  tasks:
+    
+    - copy: src=.bash_profile dest=/home/acct

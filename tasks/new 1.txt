@@ -1,0 +1,37 @@
+---
+# tasks file for verification
+
+- hosts: all 
+  tasks:
+
+    - name: server name
+      shell: hostname
+      ignore_errors: yes
+
+    - name: Check space
+      shell: df -h
+      ignore_errors: yes
+   
+    - name: view cronjob
+      shell: crontab -l
+      ignore_errors: yes
+
+    - name: Server Brand/Model
+      shell: dmidecode -t system
+      ignore_errors: yes
+      
+    - name: Total Memory
+      shell: cat /proc/meminfo
+      ignore_errors: yes
+      
+    - name: No.Of CPU
+      shell: cat /proc/cpuinfo
+      ignore_errors: yes
+      
+    - name: SUDO
+      shell: sudo -V
+      ignore_errors: yes
+      
+    - name: Apache
+      shell: httpd -v
+      ignore_errors: yes
